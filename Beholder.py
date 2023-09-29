@@ -10,8 +10,7 @@ def run_beholder():
     from watchdog.events import FileSystemEventHandler
     import win32security
     import ntsecuritycon as con
-
-    # Classe para manipular eventos do sistema de arquivos
+    
     class MyHandler(FileSystemEventHandler):
         def __init__(self, monitored_path, target_path, allowed_processes):
             self.monitored_path = monitored_path
@@ -29,13 +28,12 @@ def run_beholder():
 
                     if process_name not in self.allowed_processes:
                         print(f'O processo {process_name} não é permitido nesta pasta. Ativando segurança!')
-                        #terminate_process(process_id)
                         self.unauthorized_process_detected = True
                 except Exception as e:
                     print('Erro ao obter informações do processo:', e)
 
 
-    # Função para capturar os SIDs das permissões permitidas
+   
     def capture_sids(folder_path):
         captured_sids = []
         try:
@@ -53,7 +51,7 @@ def run_beholder():
 
         return captured_sids
 
-    # Função para remover permissões usando os SIDs capturados
+    
     def remove_permissions(folder_path, captured_sids):
         try:
             sd = win32security.GetFileSecurity(folder_path, win32security.DACL_SECURITY_INFORMATION)
@@ -69,7 +67,7 @@ def run_beholder():
         except Exception as e:
             print('Error removing permissions:', str(e))
 
-    # Função para restaurar permissões usando os SIDs capturados
+   
     def restore_permissions(folder_path, captured_sids):
         try:
             sd = win32security.GetFileSecurity(folder_path, win32security.DACL_SECURITY_INFORMATION)
@@ -86,15 +84,15 @@ def run_beholder():
             print('Error restoring permissions:', str(e))
 
     try:
-        monitored_path = r'C:\HONEYPOT'  # Pasta para monitorar (default)
-        target_path = r'C:\protegido'
+        monitored_path = r'C:\HONEYPOT'  
+        target_path = r'C:\shares'
         allowed_processes_input_path = r'honeyprocess.txt'
 
-        # Lê o conteúdo do arquivo allowed_processes_input
+        
         with open(allowed_processes_input_path, 'r') as file:
             allowed_processes_input = file.read()
 
-        # Divide o conteúdo do arquivo usando a vírgula como separador e remove espaços em branco em excesso
+        
         allowed_processes = [process.strip() for process in allowed_processes_input.split(',')]
 
 
@@ -105,18 +103,18 @@ def run_beholder():
 
         while True:
             if handler.unauthorized_process_detected:
-                # Capturar SIDs das permissões permitidas
+                
                 captured_sids = capture_sids(target_path)
                 print('Captured SIDs:', captured_sids)
 
-                # Remover permissões (se um processo não autorizado for detectado)
+                
                 remove_permissions(target_path, captured_sids)
                 print('Permissions removed. Waiting for 2 minutes...')
                 
-                # Esperar por 2 minutos
+                
                 time.sleep(20)
 
-                # Restaurar permissões usando os SIDs capturados
+               
                 restore_permissions(target_path, captured_sids)
                 print('Permissions restored using captured SIDs.')
 
@@ -147,7 +145,7 @@ def run_gazer():
             self.allowed_processes = allowed_processes
 
         def on_any_event(self, event):
-            #print('Evento', event.event_type, 'caminho:', event.src_path, 'diretório?', event.is_directory)
+            
 
             if event.src_path and event.src_path.startswith(self.monitored_path):
                 try:
@@ -155,7 +153,7 @@ def run_gazer():
                     _, process_id = win32process.GetWindowThreadProcessId(foreground_window)
                     process = psutil.Process(process_id)
                     process_name = process.name()
-                    #print(f'Processo atual ({process_id}): {process_name}')
+                    
                     
                     if process_name != 'explorer.exe' and process_name not in self.allowed_processes:
                         print(f'O processo {process_name} não é permitido nesta pasta. Encerrando...')
@@ -169,6 +167,13 @@ def run_gazer():
                     print(f'Arquivo .exe removido: {event.src_path}')
                 except Exception as e:
                     print('Erro ao remover o arquivo .exe:', e)
+            
+            if not event.is_directory and event.src_path.lower().endswith('.dll'):
+                try:
+                    os.remove(event.src_path)
+                    print(f'Arquivo .exe removido: {event.src_path}')
+                except Exception as e:
+                    print('Erro ao remover o arquivo .dll:', e)
 
     def terminate_process(process_id):
         try:
@@ -182,25 +187,20 @@ def run_gazer():
         except Exception as e:
             print('Erro ao encerrar o processo:', e)
 
-    # Solicitar a pasta a ser monitorada
     monitored_path = r'C:\\'
 
     allowed_processes_input_path = r'process.txt'
 
-        # Lê o conteúdo do arquivo allowed_processes_input
     with open(allowed_processes_input_path, 'r') as file:
         allowed_processes_input = file.read()
 
-        # Divide o conteúdo do arquivo usando a vírgula como separador e remove espaços em branco em excesso
     allowed_processes = [process.strip() for process in allowed_processes_input.split(',')]
 
 
-    # Configurar o hook
     def file_system_callback(hDir, action, file_name):
         if action == win32file.FILE_ACTION_MODIFIED or action == win32file.FILE_ACTION_ADDED:
             print(f'Arquivo modificado ou adicionado: {file_name}')
 
-    # Registrar o hook
     hDir = win32file.CreateFile(
         monitored_path,
         win32con.GENERIC_READ,
@@ -233,30 +233,68 @@ def run_gazer():
 
     observer.join()
 
-# Função para solicitar a senha do administrador
-# def get_admin_password():
-    # while True:
-        # senha_digitada = getpass.getpass("Digite a senha de administrador: ")
-        # if senha_digitada == senha_admin:
-        #     return True
-        # else:
-        #    print("Senha incorreta. Tente novamente.")
+def run_pen_monitor():
 
-# Verificar a senha de administrador
+    import win32file
+    import os
+    import time
+
+    def list_usb_drives():
+        drives = []
+        drive_bits = win32file.GetLogicalDrives()
+        
+        for drive_bit in range(26):
+            mask = 1 << drive_bit
+            if drive_bits & mask:
+                drive_letter = chr(65 + drive_bit)
+                drive_info = win32file.GetDriveType(f"{drive_letter}:\\")
+                
+                if drive_info == win32file.DRIVE_REMOVABLE:
+                    drives.append(f"{drive_letter}:\\")
+        
+        return drives
+
+    def remove_exe_dll_files(drive):
+        file_extensions_to_remove = ['.exe', '.dll']
+        
+        for root, _, files in os.walk(drive):
+            for filename in files:
+                _, file_extension = os.path.splitext(filename)
+                if file_extension.lower() in file_extensions_to_remove:
+                    file_to_remove = os.path.join(root, filename)
+                    try:
+                        os.remove(file_to_remove)
+                        print(f'Arquivo removido: {file_to_remove}')
+                    except Exception as e:
+                        print(f'Erro ao remover {file_to_remove}: {str(e)}')
+
+    while True:
+        usb_drives = list_usb_drives()
+        if usb_drives:
+            print("Pendrives USB conectados:")
+            for drive in usb_drives:
+                print(drive)
+                remove_exe_dll_files(drive)
+        else:
+            print("Nenhum pendrive USB conectado.")
+        time.sleep(5)
+
+
 if __name__ == "__main__":
-    # Criar threads para executar os programas
+    
     thread1 = threading.Thread(target=run_beholder)
     thread2 = threading.Thread(target=run_gazer)
+    thread3 = threading.Thread(target=run_pen_monitor)
 
-    # Iniciar as threads
     thread1.start()
     thread2.start()
+    thread3.start()
 
-    # Aguardar até que ambas as threads terminem
     thread1.join()
     thread2.join()
+    thread3.join()
 
     print("Ambos os programas foram abertos")
 
 while True:
-        pass
+    pass
