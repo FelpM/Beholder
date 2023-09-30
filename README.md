@@ -52,13 +52,13 @@ permissões. A lista pode ser alterada no arquivo processes.txt na pasta do prog
 
 # Manual do usuário
 
-Recomenda-se executar o Beholder como administrador a partir do perfil do usuário no 
+ * Recomenda-se executar o Beholder como administrador a partir do perfil do usuário no 
 qual se deseja atribuir as limitações.
-Ao registrar os processos permitidos sempre coloque o "beholder.exe", afim de que ele
+ * Ao registrar os processos permitidos sempre coloque o "beholder.exe", afim de que ele
 nçao se encerre
-A aplicação iniciará em segundo plano, não permitindo que o usuário logado encerre o 
+ * A aplicação iniciará em segundo plano, não permitindo que o usuário logado encerre o 
 processo. 
-Para encerrar o processo é necessário voltar ao perfil de administrador através do 
+ * Para encerrar o processo é necessário voltar ao perfil de administrador através do 
 comando ctrl + alt + del e pará-lo através do Gerenciador de Tarefas
 
 ATENÇÃO - Nunca execute o Beholder no ambiente de administração do host!!!
