@@ -40,12 +40,12 @@ Testado em dispositivos com recursos de hardware:
 
 # Manual de instalação
 
-Após baixar o arquivo .zip descompacte na pasta desejada.
-Certifique-se de ter a pasta "Shares" no diretório rais (C:). Este será o diretório
+ * Após baixar o arquivo .zip descompacte na pasta desejada.
+ * Certifique-se de ter a pasta "Shares" no diretório rais (C:). Este será o diretório
 protegido 
-Execute o installer.exe. Ele criará os outros diretórios necessários para o monitoramento 
+ * Execute o installer.exe. Ele criará os outros diretórios necessários para o monitoramento 
 e um atalho para iniciar o programa
-Insira os nomes dos processos .exe que desseja permitir a execusão (O beholder encerrará
+ * Insira os nomes dos processos .exe que desseja permitir a execusão (O beholder encerrará
 qualquer outro processo aberto após sua inicialização que não estiver na lista de
 permissões. A lista pode ser alterada no arquivo processes.txt na pasta do programa).
 
