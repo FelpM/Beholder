@@ -26,7 +26,7 @@ varredura de dispositivo externos plugados nas portas USB.
 
 Estas funções em conjunto ajudam a mitigar riscos de ataque pelos principais ransowares 
 do mercado, além de limitar a ação de um agente mal-intencionado que tenha acesso 
-físico ou remoto ou host. Sugere-se a utilização em hosts ou end points destinados a 
+físico ou remoto ou host. Sugere-se a utilização em terminais ou end points destinados a 
 poucas ou somente uma operação específica.
 
 
