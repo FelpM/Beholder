@@ -21,8 +21,6 @@ poucas ou somente uma operação específica.
 
 Requisitos mínimos de hardware
 
-Projetado com base na arquitetura de Windows 10 e Windows server
-
 Testado em dispositivos com recursos de hardware:
  - 4 gb de memória ram
  - 2 núcleos de processamento
@@ -34,8 +32,9 @@ Manual de instalação
 
 Após baixar o arquivo .zip descompacte na pasta desejada.
 Certifique-se de ter a pasta "Shares" no diretório rais (C:). Este será o diretório
-protegido 
-Execute o installer.exe. Ele criará os outros diretórios necessários para o monitoramento e um atalho para iniciar o programa
+protegido. 
+Execute o installer.exe. Ele criará os outros diretórios necessários para o 
+monitoramento e um atalho para iniciar o programa.
 Insira os nomes dos processos .exe que desseja permitir a execusão (O beholder encerrará
 qualquer outro processo aberto após sua inicialização que não estiver na lista de
 permissões. A lista pode ser alterada no arquivo processes.txt na pasta do programa).
@@ -44,23 +43,28 @@ permissões. A lista pode ser alterada no arquivo processes.txt na pasta do prog
 
 Manual do usuário  
 
-Recomenda-se executar o Beholder como administrador a partir do perfil do usuário no 
-qual se deseja atribuir as limitações.
-Ao registrar os processos permitidos sempre coloque o "beholder.exe", afim de que ele
-nçao se encerre
-A aplicação iniciará em segundo plano, não permitindo que o usuário logado encerre o 
-processo. 
+Recomenda-se executar o Beholder como administrador a partir do perfil do usuário no qual 
+se deseja atribuir as limitações.
+Ao registrar os processos permitidos sempre coloque o "beholder.exe", afim de que ele 
+não se encerre.
+Os processos permitidos podem ser adicionados posteriormente a instalação no arquivo 
+process.txt na pasta da aplicação.
+A aplicação iniciará em segundo plano, não permitindo que o usuário logado encerre 
+o processo.
 Para encerrar o processo é necessário voltar ao perfil de administrador através do 
-comando ctrl + alt + del e pará-lo através do Gerenciador de Tarefas
+comando ctrl + alt + del e pará-lo através do Gerenciador de Tarefas.
 
-ATENÇÃO - Nunca execute o Beholder no ambiente de administração do host!!!
-ATENÇÃO - Quando ativo no sistema, a aplicação deverá apagar qualquer executavel ou dll
-identificado dentro de um dispositivo móvel instalado no dispositivo!!!
+ATENÇÃO - Nunca execute o Beholder no ambiente de administração do host!!! Quando ativo
+no sistema, a aplicação deverá apagar qualquer executavel ou dll identificado dentro de 
+um dispositivo móvel instalado no dispositivo!!!
+
+CUIDADO: Ao tentar domar um Beholder, ele pode se virar contra você
 
 -----------------------------------------------------------------------------------------
 
 Dependências
 
+Projetado com base na arquitetura de Windows 10 e Windows server
 O código fonte foi desenvolvido inteiramente em Python 3.10
 Não é necessário a instalação de nenhuma aplicação que esteja fora do padrão do sistema 
 operacional
