@@ -99,4 +99,4 @@ docente do curso.
 Projeto em desenvolvimento. Aberto a colaborações e disponível para melhorias, adaptações
 ou uso!
 
-Caso tenha dúvidas. Contate-nos! 
+Caso tenha dúvidas. Entre em contato! 
