@@ -2,6 +2,7 @@
 <h1 align="center"> Beholder </h1>
 
 ![img](https://github.com/FelpM/Beholder/blob/main/beholderimg.png)
+Eye of the Beholder (1991)
 
 # Índice 
 
