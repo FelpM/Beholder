@@ -67,6 +67,7 @@ comando ctrl + alt + del e pará-lo através do Gerenciador de Tarefas
 ATENÇÃO - Nunca execute o Beholder no ambiente de administração do host!!! Quando ativo no sistema, a aplicação deverá apagar qualquer executavel ou dll
 identificado dentro de um dispositivo móvel instalado no dispositivo!!!
 
+CUIDADO: Ao tentar domar um Beholder, ele pode se virar contra você
 
 # Dependências
 
