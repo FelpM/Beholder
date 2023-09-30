@@ -91,7 +91,7 @@ criptografia.
 
 Felipe Madeira é aluno do primeiro ano do curso de Defesa Cibernética da Faculdade de
 Informática e Administração Paulista (FIAP). O projeto foi desenvoldido em atividade de 
-desafio "Challange Sprints", proposto pela Prdide Security juntamente com o corpo
+desafio, proposto pela Prdide Security juntamente com o corpo
 docente do curso.
 
 # Status do projeto
