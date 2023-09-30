@@ -1,7 +1,7 @@
 
 <h1 align="center"> Beholder </h1>
 
-![img](https://github.com/FelpM/Beholder/blob/main/eyeofbeholder.png)
+![img]([https://github.com/FelpM/Beholder/blob/main/eyeofbeholder.png](https://github.com/FelpM/Beholder/blob/main/beholderimg.png))
 
 
 # Índice 
