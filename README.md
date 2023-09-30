@@ -50,6 +50,7 @@ e um atalho para iniciar o programa
 qualquer outro processo aberto após sua inicialização que não estiver na lista de
 permissões. A lista pode ser alterada no arquivo processes.txt na pasta do programa).
 
+![exemplo](https://github.com/FelpM/Beholder/blob/main/exemplo.png)
 
 # Manual do usuário
 
