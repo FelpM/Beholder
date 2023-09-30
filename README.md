@@ -11,7 +11,7 @@
 * [Manual do usuário](#manual-do-usuário)
 * [Dependências](#dependências)
 * [Recomendações de Uso](#recomendações-de-uso)
-* [Sobre o projeto e o Desenvolverdor](#sobre-o-projeto-e-o-desenvolvedor)
+* [Sobre o projeto e o Desenvolvedor](#sobre-o-projeto-e-o-desenvolvedor)
 * [Status do projeto](#status-do-projeto)
 
 # Desenvolvido por Felipe Madeira
@@ -83,7 +83,7 @@ Além da primeira camada de proteção, o programa também protege o diretório 
 alcançarem os dados sensíveis compartilhados e evitando seu sequestro ou 
 criptografia.
 
-# Sobre o projeto e o Desenvolverdor
+# Sobre o projeto e o Desenvolvedor
 
 Felipe Madeira é aluno do primeiro ano do curso de Defesa Cibernética da Faculdade de
 Informática e Administração Paulista (FIAP). O projeto foi desenvoldido em atividade de 
