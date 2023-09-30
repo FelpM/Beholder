@@ -57,7 +57,8 @@ permissões. A lista pode ser alterada no arquivo processes.txt na pasta do prog
  * Recomenda-se executar o Beholder como administrador a partir do perfil do usuário no 
 qual se deseja atribuir as limitações.
  * Ao registrar os processos permitidos sempre coloque o "beholder.exe", afim de que ele
-nçao se encerre
+não se encerre
+ * Os processos permitidos podem ser adicionados posteriormente a instalação no arquivo process.txt na pasta da aplicação
  * A aplicação iniciará em segundo plano, não permitindo que o usuário logado encerre o 
 processo. 
  * Para encerrar o processo é necessário voltar ao perfil de administrador através do 
