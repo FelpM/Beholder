@@ -32,8 +32,6 @@ poucas ou somente uma operação específica.
 
 # Requisitos mínimos de hardware
 
-Projetado com base na arquitetura de Windows 10 e Windows server
-
 Testado em dispositivos com recursos de hardware:
  * 4 gb de memória ram
  * 2 núcleos de processamento
@@ -71,7 +69,10 @@ CUIDADO: Ao tentar domar um Beholder, ele pode se virar contra você
 
 # Dependências
 
+Projetado com base na arquitetura de Windows 10 e Windows server
+
 O código fonte foi desenvolvido inteiramente em Python 3.10
+
 Não é necessário a instalação de nenhuma aplicação que esteja fora do padrão do sistema 
 operacional
 
