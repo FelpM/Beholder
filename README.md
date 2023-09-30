@@ -61,8 +61,7 @@ processo.
  * Para encerrar o processo é necessário voltar ao perfil de administrador através do 
 comando ctrl + alt + del e pará-lo através do Gerenciador de Tarefas
 
-ATENÇÃO - Nunca execute o Beholder no ambiente de administração do host!!!
-ATENÇÃO - Quando ativo no sistema, a aplicação deverá apagar qualquer executavel ou dll
+ATENÇÃO - Nunca execute o Beholder no ambiente de administração do host!!! Quando ativo no sistema, a aplicação deverá apagar qualquer executavel ou dll
 identificado dentro de um dispositivo móvel instalado no dispositivo!!!
 
 
